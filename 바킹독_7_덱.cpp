@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 
 using namespace std;
-f
+
 const int MX = 1000005;
 int dat[2*MX+1];
 int head = MX, tail = MX;
