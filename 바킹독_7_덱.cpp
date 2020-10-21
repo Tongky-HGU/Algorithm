@@ -23,11 +23,11 @@ void pop_back(){
 }
 
 int front(){
-  return dat[head]
+  return dat[head];
 }
 
 int back(){
-  return dat[tail-1]
+  return dat[tail-1];
 }
 
 void test(){
