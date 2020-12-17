@@ -8,4 +8,3 @@ for i in range(3):
 a = str(a)
 for i in range(10):
     print(a.count(str(i)))
-
