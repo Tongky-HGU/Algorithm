@@ -49,24 +49,6 @@ def LCP():
 #             lcp = k
 #             idx = j
 #         k = max(k-1,0)
-
-# def LCP():
-#     global lcp, idx
-#     k=0
-#     for i in range(n_1+1,n):
-#         if n-i < lcp : break
-#         if pos[i] == n-1 : continue
-#         j = sa[pos[i]+1]
-#         if j > n_1 : continue
-#         while(1):
-#             if i+k < n and j+k < n and s[i+k] == s[j+k]:
-#                 k += 1
-#             else:
-#                 break
-#         if k > lcp:
-#             lcp = k
-#             idx = j
-#         k = max(k-1,0)
         
 
 s1 = str(stdin.readline().rstrip())
@@ -123,14 +105,17 @@ LCP()
 maxlcp = 0
 
 print(lcp)
+print(sa)
 
-for i in range(len(lcp)):
-    if  i > n_1 and lcp[i] > maxlcp :
-        maxlcp = lcp[i]
-        idx = sa[i]
+
+for i in range(1,len(lcp)):
+    if (sa[i] < n_1 and sa[i-1] > n_1) or  (sa[i] > n_1 and sa[i-1] < n_1):
+        if  lcp[i] > maxlcp:
+            maxlcp = lcp[i]
+            idx = sa[i]
 
 print(maxlcp)
-
+print(idx)
 print(s[idx:idx+maxlcp])
 
 print("time :", time.time() - start) 

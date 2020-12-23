@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>정렬하기</h2>
+    <p>팀원들의 이름을 입력받아 오름차순으로 정렬하기</p>
+
+    <button onclick="sortNames('down')">내림차순</button>
+    <button onclick="sortNames('up')">오름차순</button>
+    <div class="output"></div>
+    <script>
+        const output = document.querySelector(".output");
+        const names = [];
+        let name;
+        while (name !== "end") {
+            name = prompt("이름입력!");
+            names.push(name);
+        }
+        names.pop(-1)
+
+        //   document.write(names)
+
+        function sortNames(type) {
+            output.innerHTML = "";
+            const returnOrder = type == "down" ? 1 : -1;
+            const sortedNames = names.sort((a, b) =>
+                a > b ? returnOrder * 1 : returnOrder * -1
+            );
+            sortedNames.forEach((name) => {
+                const p = document.createElement("a");
+                p.innerText = name + ", ";
+                output.appendChild(p);
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,36 +1,38 @@
 n = int(input())
 
-strike = []
-ball = []
-for i in range(3):
-    strike.append([0] *10)
-    ball.append([0] *10)
-
+ans=[]
 for _ in range(n):
-    score = list(map(int,input().split()))
-    if score[1] >= 0:
-        strike[0][score[0]//100] +=1
-        strike[1][score[0]//10%10] +=1
-        strike[2][score[0]%10] +=1
-    if score[2] >= 0:
-        ball[0][score[0]//100] +=1
-        ball[1][score[0]//10%10] +=1
-        ball[2][score[0]%10] +=1
+    ans.append(list(map(int,input().split())))
 
-for i in range(3):
-    for j in range(10):
-        if strike[i][j] >= 2:
-            print(strike[i][j])
-            ball[0][j] = 0
-            ball[1][j] = 0
-            ball[2][j] = 0
+a = [i for i in range(100,1000)]
+# 0 다 제거 
+for i in range(len(a)-1,-1,-1):
+    if a[i]%10 == 0 or a[i]//10%10 == 0 or a[i]//100%10==0:
+        a.pop(i)
+# 겹치는 코드 다제거
+for i in range(len(a)-1,-1,-1):
+    if a[i]%10 == a[i]//10%10 or a[i]//10%10 == a[i]//100%10 or a[i]%10 == a[i]//100%10:
+        a.pop(i)
 
+for call, strike, ball in ans:
+    for i in range(len(a)-1,-1,-1):
+        # strike 비교
+        a_strike = 0
+        if a[i]%10 == call%10 : a_strike += 1
+        if a[i]//10%10 == call//10%10: a_strike += 1
+        if a[i]//100%10==call//100%10: a_strike += 1
+        # ball 비교
+        a_ball = 0
+        if a[i]%10 == call//10%10 or a[i]%10 == call//100%10: a_ball += 1
+        if a[i]//10%10 == call%10 or a[i]//10%10 == call//100%10: a_ball += 1
+        if a[i]//100%10 == call%10 or a[i]//100%10 == call//10%10: a_ball += 1
 
+        if(a_strike != strike or a_ball != ball): a.pop(i)
 
+print(len(a))
     
+        
 
-print(strike)
-print(ball)
 
 
 

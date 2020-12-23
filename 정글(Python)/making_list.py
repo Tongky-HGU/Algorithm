@@ -1,5 +1,6 @@
 # in Excel, CONCATENATE(A1,",")
 import os.path
+
 list1 = [1920,
 2805,
 2110,
@@ -27,12 +28,10 @@ list1 = [1920,
 1655,
 1715,
 13334]
-​
 # define_type
 ans1 = int(input('만들고 싶은 파일 유형(0 or 1)을 입력하세요 (Python : 0, Cpp : 1) : '))
 option = ['py', 'cpp']  # 쓰는 언어 없으면 option에 추가하세여
 lang = option[ans1]
-​
 # make_file
 print('현재 경로: %s' % (os.getcwd()))
 ans2 = int(input('만들고 싶은 경로가 맞습니까? (Yes : 0, No : 1) : '))
