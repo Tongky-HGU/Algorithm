@@ -1,4 +1,2 @@
-while(1):
-#     if i == len(A):
-#         break
-#     solve(i)
+for _ in range(N):
+#     for i in range(K):
