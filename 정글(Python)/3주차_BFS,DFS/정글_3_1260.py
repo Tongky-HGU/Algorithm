@@ -11,7 +11,7 @@ for i in range(M):
     A.append([a[1],a[0]])
 
 A.sort(key=lambda x:(x[0],-x[1]))
-
+print(A)
 #DFS
 vis = [0]*(N+1)
 stack = deque() #DFS
@@ -35,6 +35,8 @@ print('')
 
 #BFS
 A.sort(key=lambda x:(x[0],x[1]))
+print(A)
+
 
 vis = [0]*(N+1)
 queue = deque() #BFS
