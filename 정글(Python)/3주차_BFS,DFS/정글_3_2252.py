@@ -1,6 +1,8 @@
 # 줄 세우기
 import sys
 from collections import deque
+sys.setrecursionlimit(100000)
+
 N, M = map(int,sys.stdin.readline().split())
 
 A = [[] for _ in range(N+1)]
@@ -18,20 +20,17 @@ for _ in range(M):
 
 def dfs(i):
     ans.append(i)
+    order[i] = -1
     for j in range(len(A[i])):
         order[A[i][j]] -= 1
-        
-while(1):   
-    for i in range(1,N+1):
-        if order[i] == 0:
-            order[i] = -1
-            dfs(i)
-    if len(ans) == N:
-        break
+        if order[A[i][j]] == 0:
+            dfs(A[i][j])
+            
+for i in range(1,N+1):
+    if order[i] == 0:
+        dfs(i)
 
-for i in range(N):
-    print(ans[i],end=' ')
-    
+print(*ans)
 
 # print(order)
 # print(vis)
