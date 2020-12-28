@@ -11,24 +11,21 @@ for i in range(M):
     A.append([a[1],a[0]])
 
 A.sort(key=lambda x:(x[0],-x[1]))
-print(A)
+# print(A)
 #DFS
 vis = [0]*(N+1)
 stack = deque() #DFS
 
 stack.append(V)
-cnt = 0
 while(1):
     cur = stack.pop()
     if vis[cur] == False:
         print(cur,end=' ')
         vis[cur] = True
-        cnt+=1
         for i in range(2*M):
             if cur == A[i][0]:
                 if vis[A[i][1]]== False:
                     stack.append(A[i][1])
-    # if(cnt==N):
     if len(stack)==0:
         break
 print('')
