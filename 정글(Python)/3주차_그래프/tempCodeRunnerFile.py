@@ -1,1 +1,2 @@
-print
+
+uphill = dij(1)
