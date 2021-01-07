@@ -1,4 +1,5 @@
 #신입사원
+# 살펴보면 sort를 할 이유가 없었다...
 import sys
 def sol():
     N = int(sys.stdin.readline())

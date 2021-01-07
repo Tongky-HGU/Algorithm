@@ -1,2 +1,2 @@
-
-	dp[i][i] = A[i]
+for i in range(step):
+#     steplist.append(int(read()))
