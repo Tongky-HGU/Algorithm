@@ -1,1 +1,2 @@
-print(N)
+
+    trie1.insert(A)
