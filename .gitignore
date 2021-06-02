@@ -2,4 +2,5 @@
 *.txt
 *.gitignore
 *.json
-.vscode
+/.vscode
+/.vs
