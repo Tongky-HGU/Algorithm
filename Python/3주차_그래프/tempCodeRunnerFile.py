@@ -1,2 +1,0 @@
-
-uphill = dij(1)
